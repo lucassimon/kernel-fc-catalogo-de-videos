@@ -33,7 +33,7 @@ class Category(Entity):
         for field_name, value in data.items():
             self._set(field_name, value)
 
-        self.validate()
+        # self.validate()
 
     def _set(self, field_name, value):
         object.__setattr__(self, field_name, value)
