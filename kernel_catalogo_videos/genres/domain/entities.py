@@ -9,11 +9,11 @@ from dataclasses import field, dataclass
 # Third
 
 # Apps
-from kernel_catalogo_videos.core.utils import ACTIVE_STATUS, now, uuidv4
+from kernel_catalogo_videos.core.utils import ACTIVE_STATUS, now
+from kernel_catalogo_videos.core.domain.entities import Entity
 
-
-@dataclass()
-class Genre:
+@dataclass(kw_only=True, frozen=True, slots=True)
+class Genre(Entity):
     """
     Representa os dados da entidade genero
     """
@@ -22,5 +22,4 @@ class Genre:
     slug: str
     status: Optional[int] = ACTIVE_STATUS
     is_deleted: bool = False
-    code: Optional[str] = field(default_factory=uuidv4)
     created_at: Optional[datetime] = field(default_factory=now)
