@@ -6,9 +6,10 @@ from typing import Any, Dict, Optional
 from datetime import datetime
 from dataclasses import field, dataclass
 
-
+# Apps
 from kernel_catalogo_videos.core.utils import ACTIVE_STATUS, INACTIVE_STATUS, now
 from kernel_catalogo_videos.core.domain.entities import Entity
+
 # from kernel_catalogo_videos.core.domain.exceptions import EntityValidationException
 # from kernel_catalogo_videos.categories.domain.factories import CategoryValidatorFactory
 

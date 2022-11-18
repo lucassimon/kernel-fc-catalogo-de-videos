@@ -7,8 +7,6 @@ import abc
 from typing import Any, Dict, List, Generic, TypeVar
 from dataclasses import dataclass
 
-# Third
-
 ErrorsField = Dict[str, List[str]]
 PropsValidated = TypeVar("PropsValidated")
 

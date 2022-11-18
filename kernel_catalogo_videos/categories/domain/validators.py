@@ -4,10 +4,12 @@ Define um ou mais validators para categoria
 
 # Python
 
-# Third
-from kernel_catalogo_videos.core.domain.validators import PropsValidated, ValidatorFieldInterface
-
 # Apps
+from kernel_catalogo_videos.core.domain.validators import PropsValidated, ValidatorFieldInterface
+from pydantic import BaseModel
+
+class Foo(BaseModel):
+    bar: str
 
 
 class DummyValidator(ValidatorFieldInterface[PropsValidated]):

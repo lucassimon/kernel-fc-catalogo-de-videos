@@ -10,5 +10,5 @@ from kernel_catalogo_videos.categories.application.use_cases.dto import Category
 
 
 @dataclass(slots=True, frozen=True)
-class CreateCategoryOutput(CategoryOutputDTO):
+class UpdateCategoryOutput(CategoryOutputDTO):
     pass

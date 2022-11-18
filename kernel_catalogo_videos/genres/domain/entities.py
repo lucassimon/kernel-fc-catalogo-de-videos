@@ -6,11 +6,10 @@ from typing import Optional
 from datetime import datetime
 from dataclasses import field, dataclass
 
-# Third
-
 # Apps
 from kernel_catalogo_videos.core.utils import ACTIVE_STATUS, now
 from kernel_catalogo_videos.core.domain.entities import Entity
+
 
 @dataclass(kw_only=True, frozen=True, slots=True)
 class Genre(Entity):
