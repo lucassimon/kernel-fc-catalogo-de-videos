@@ -43,8 +43,7 @@ clean-build: clean
 	rm -rf *.egg-info
 
 lint:
-	@pylint src/
-	@pylint apps/
+	@pylint kernel_catalogo_videos/
 
 lint_black:
 	@docker run --rm --volume $(pwd):/src --workdir /src pyfound/black:latest_release black --check .
@@ -57,30 +56,12 @@ black:
 	@docker run --rm --volume $(pwd):/src --workdir /src pyfound/black:latest_release black .
 
 isort:
-	@isort apps/ src/
+	@isort kernel_catalogo_videos/
 
 formatter: isort black
-
-run_dev:
-	@python manage.py runserver 5000 --settings=main.settings.dev
-
-migrations:
-	@python manage.py makemigrations --settings=main.settings.dev
-
-migrate:
-	@python manage.py migrate --settings=main.settings.dev
-
-messages:
-	@python manage.py makemessages --all
-
-compilemessages:
-	@python manage.py compilemessages
 
 coverage:
 	@coverage html
 
 test: clean-build
-	@pytest -s --verbose --cov=apps tests/
-
-show_urls:
-	@python manage.py show_urls --settings=main.settings.dev
+	@pytest
