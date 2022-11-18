@@ -6,10 +6,6 @@ Define um ou mais validators para categoria
 
 # Apps
 from kernel_catalogo_videos.core.domain.validators import PropsValidated, ValidatorFieldInterface
-from pydantic import BaseModel
-
-class Foo(BaseModel):
-    bar: str
 
 
 class DummyValidator(ValidatorFieldInterface[PropsValidated]):
@@ -17,8 +13,8 @@ class DummyValidator(ValidatorFieldInterface[PropsValidated]):
     Validação de serializers do django rest framework
     """
 
-    def validate(self, is_valid: bool) -> bool:
-        if not is_valid:
+    def validate(self, validator: bool) -> bool:
+        if not validator:
             return False
 
         return True

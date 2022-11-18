@@ -21,18 +21,17 @@ class UpdateCategoryUseCase(UseCase[UpdateCategoryInput, UpdateCategoryOutput]):
     def __init__(self, repo: CategoryRepository) -> None:
         self.repo = repo
 
-    def execute(self, input_param: UpdateCategoryInput) -> UpdateCategoryOutput:
-        entity = self.repo.find_by_id(input_param.id)
-        entity.update(input_param.name, input_param.description)
+    def execute(self, input_params: UpdateCategoryInput) -> UpdateCategoryOutput:
+        entity = self.repo.find_by_id(input_params.id)
+        entity.update(input_params.name, input_params.description)
 
-        if input_param.is_active is True:
+        if input_params.is_active is True:
             entity.activate()
 
-        if input_param.is_active is False:
+        if input_params.is_active is False:
             entity.deactivate()
 
         return self.__to_output(category=entity)
 
     def __to_output(self, category: Category):
-        # TODO: Utilizar o Output do create
         return CategoryOutputMapper.to_output(klass=UpdateCategoryOutput, category=category)

@@ -23,11 +23,9 @@ class CreateCategoryUseCase(UseCase[CreateCategoryInput, CreateCategoryOutput]):
         self.repo = repo
 
     def execute(self, input_params: CreateCategoryInput) -> CreateCategoryOutput:
-        # pylint: disable=unexpected-keyword-arg
         category = Category(title=input_params.title, description=input_params.description, status=input_params.status)
         self.repo.insert(category)
         return self.__to_output(category=category)
 
     def __to_output(self, category: Category):
-        # TODO: Utilizar o Output do create
         return CategoryOutputMapper.to_output(klass=CreateCategoryOutput, category=category)

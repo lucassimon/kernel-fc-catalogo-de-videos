@@ -27,5 +27,4 @@ class GetCategoryUseCase(UseCase[GetCategoryInput, GetCategoryOutput]):
         return self.__to_output(category=category)
 
     def __to_output(self, category: Category):
-        # TODO: Utilizar o Output do get
         return CategoryOutputMapper.to_output(klass=GetCategoryOutput, category=category)
