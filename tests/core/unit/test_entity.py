@@ -34,24 +34,18 @@ def test_entity_props():
     assert isinstance(entity.unique_entity_id, UniqueEntityId)
     assert entity.unique_entity_id.id == entity.id
 
+
 @pytest.mark.unit
 def test_entity_set_valid_id():
-    uuid = 'dcc13d20-e91d-437d-a6ac-2fd60605a271'
-    entity = StubEntity(
-        unique_entity_id=UniqueEntityId(uuid),
-        foo="bar",
-        marco="polo"
-    )
+    uuid = "dcc13d20-e91d-437d-a6ac-2fd60605a271"
+    entity = StubEntity(unique_entity_id=UniqueEntityId(uuid), foo="bar", marco="polo")
 
     assert entity.id == uuid
 
+
 @pytest.mark.unit
 def test_entity_to_dict():
-    uuid = 'dcc13d20-e91d-437d-a6ac-2fd60605a271'
-    entity = StubEntity(
-        unique_entity_id=UniqueEntityId(uuid),
-        foo="bar",
-        marco="polo"
-    )
+    uuid = "dcc13d20-e91d-437d-a6ac-2fd60605a271"
+    entity = StubEntity(unique_entity_id=UniqueEntityId(uuid), foo="bar", marco="polo")
 
     assert entity.to_dict() == {"id": str(uuid), "foo": "bar", "marco": "polo"}

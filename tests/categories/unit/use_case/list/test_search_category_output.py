@@ -3,7 +3,9 @@ from typing import List, Optional
 
 import pytest
 
-from kernel_catalogo_videos.categories.application.use_cases.search.output import SearchCategoryOutput
+from kernel_catalogo_videos.categories.application.use_cases.search.output import (
+    SearchCategoryOutput,
+)
 from kernel_catalogo_videos.core.application.dto import Filter, Item, PaginationOutput
 
 

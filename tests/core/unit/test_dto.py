@@ -1,7 +1,13 @@
 import pytest
 
 from typing import List, Optional
-from kernel_catalogo_videos.core.application.dto import Item, PaginationOutput, PaginationOutputMapper, SearchInput, Filter
+from kernel_catalogo_videos.core.application.dto import (
+    Item,
+    PaginationOutput,
+    PaginationOutputMapper,
+    SearchInput,
+    Filter,
+)
 from kernel_catalogo_videos.core.domain.repositories import SearchResult
 
 
@@ -58,7 +64,9 @@ def test_pagination_output_mapper_to_output():
         filters="filter fake",
     )
 
-    output = PaginationOutputMapper.from_child(StubPaginationOutputChild).to_output(result=result, items=result.items)
+    output = PaginationOutputMapper.from_child(StubPaginationOutputChild).to_output(
+        result=result, items=result.items
+    )
 
     expected = StubPaginationOutputChild(
         items=["some-item"],

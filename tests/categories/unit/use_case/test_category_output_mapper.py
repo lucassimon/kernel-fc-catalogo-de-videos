@@ -3,7 +3,10 @@ from datetime import datetime
 
 import pytest
 
-from kernel_catalogo_videos.categories.application.use_cases.dto import CategoryOutputDTO, CategoryOutputMapper
+from kernel_catalogo_videos.categories.application.use_cases.dto import (
+    CategoryOutputDTO,
+    CategoryOutputMapper,
+)
 from kernel_catalogo_videos.categories.domain.entities import Category
 
 
@@ -11,7 +14,13 @@ from kernel_catalogo_videos.categories.domain.entities import Category
 def test_category_output_mapper():
     created_at = datetime.now()
     # pylint: disable=unexpected-keyword-arg
-    category = Category(title="test", description="some description", status=1, is_deleted=False, created_at=created_at)
+    category = Category(
+        title="test",
+        description="some description",
+        status=1,
+        is_deleted=False,
+        created_at=created_at,
+    )
 
     output = CategoryOutputMapper.to_output(klass=CategoryOutputDTO, category=category)
 

@@ -3,7 +3,9 @@ from typing import Optional
 
 import pytest
 
-from kernel_catalogo_videos.categories.application.use_cases.search.input import SearchCategoryInput
+from kernel_catalogo_videos.categories.application.use_cases.search.input import (
+    SearchCategoryInput,
+)
 from kernel_catalogo_videos.core.application.dto import SearchInput, Filter
 
 

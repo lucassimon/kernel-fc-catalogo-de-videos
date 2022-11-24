@@ -4,10 +4,16 @@ from kernel_catalogo_videos.core.application.use_case import UseCase
 
 from kernel_catalogo_videos.core.domain.exceptions import NotFoundException
 
-from kernel_catalogo_videos.categories.application.use_cases.delete.input import DeleteCategoryInput
+from kernel_catalogo_videos.categories.application.use_cases.delete.input import (
+    DeleteCategoryInput,
+)
 
-from kernel_catalogo_videos.categories.application.use_cases.delete.use_case import DeleteCategoryUseCase
-from kernel_catalogo_videos.categories.infrastructure.repositories import CategoryInMemoryRepository
+from kernel_catalogo_videos.categories.application.use_cases.delete.use_case import (
+    DeleteCategoryUseCase,
+)
+from kernel_catalogo_videos.categories.infrastructure.repositories import (
+    CategoryInMemoryRepository,
+)
 from kernel_catalogo_videos.categories.domain.entities import Category
 
 

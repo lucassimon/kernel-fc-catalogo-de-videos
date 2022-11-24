@@ -1,7 +1,9 @@
 from typing import Optional
 import pytest
 
-from kernel_catalogo_videos.categories.application.use_cases.create.input import CreateCategoryInput
+from kernel_catalogo_videos.categories.application.use_cases.create.input import (
+    CreateCategoryInput,
+)
 from kernel_catalogo_videos.categories.domain.entities import Category
 
 

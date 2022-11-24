@@ -2,7 +2,11 @@
 import pytest
 
 # Apps
-from kernel_catalogo_videos.core.domain.repositories import Filter, SearchParams, SearchableRepositoryInterface
+from kernel_catalogo_videos.core.domain.repositories import (
+    Filter,
+    SearchParams,
+    SearchableRepositoryInterface,
+)
 
 
 @pytest.mark.unit

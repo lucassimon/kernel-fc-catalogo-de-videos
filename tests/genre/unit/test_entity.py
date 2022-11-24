@@ -41,23 +41,20 @@ def test_entity_props():
 
 @pytest.mark.unit
 def test_entity_set_valid_id():
-    uuid = 'dcc13d20-e91d-437d-a6ac-2fd60605a271'
-    entity = Genre(
-        unique_entity_id=UniqueEntityId(uuid),
-        title="bar",
-        slug="polo"
-    )
+    uuid = "dcc13d20-e91d-437d-a6ac-2fd60605a271"
+    entity = Genre(unique_entity_id=UniqueEntityId(uuid), title="bar", slug="polo")
 
     assert entity.id == uuid
 
+
 @pytest.mark.unit
 def test_entity_to_dict():
-    uuid = 'dcc13d20-e91d-437d-a6ac-2fd60605a271'
+    uuid = "dcc13d20-e91d-437d-a6ac-2fd60605a271"
     entity = Genre(
         unique_entity_id=UniqueEntityId(uuid),
         title="bar",
         slug="polo",
-        created_at=datetime(2019, 7, 1)
+        created_at=datetime(2019, 7, 1),
     )
 
     assert entity.to_dict() == {
@@ -66,5 +63,5 @@ def test_entity_to_dict():
         "slug": "polo",
         "status": 1,
         "is_deleted": False,
-        "created_at": datetime(2019, 7, 1)
+        "created_at": datetime(2019, 7, 1),
     }

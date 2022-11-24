@@ -4,11 +4,19 @@ from kernel_catalogo_videos.core.application.use_case import UseCase
 
 from kernel_catalogo_videos.core.domain.exceptions import NotFoundException
 
-from kernel_catalogo_videos.categories.application.use_cases.get.input import GetCategoryInput
-from kernel_catalogo_videos.categories.application.use_cases.get.output import GetCategoryOutput
+from kernel_catalogo_videos.categories.application.use_cases.get.input import (
+    GetCategoryInput,
+)
+from kernel_catalogo_videos.categories.application.use_cases.get.output import (
+    GetCategoryOutput,
+)
 
-from kernel_catalogo_videos.categories.application.use_cases.get.use_case import GetCategoryUseCase
-from kernel_catalogo_videos.categories.infrastructure.repositories import CategoryInMemoryRepository
+from kernel_catalogo_videos.categories.application.use_cases.get.use_case import (
+    GetCategoryUseCase,
+)
+from kernel_catalogo_videos.categories.infrastructure.repositories import (
+    CategoryInMemoryRepository,
+)
 from kernel_catalogo_videos.categories.domain.entities import Category
 
 

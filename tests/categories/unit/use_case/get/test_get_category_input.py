@@ -1,6 +1,8 @@
 import pytest
 
-from kernel_catalogo_videos.categories.application.use_cases.get.input import GetCategoryInput
+from kernel_catalogo_videos.categories.application.use_cases.get.input import (
+    GetCategoryInput,
+)
 
 
 @pytest.mark.unit

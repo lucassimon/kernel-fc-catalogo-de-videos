@@ -3,8 +3,12 @@ from typing import Optional
 
 import pytest
 
-from kernel_catalogo_videos.categories.application.use_cases.dto import CategoryOutputDTO
-from kernel_catalogo_videos.categories.application.use_cases.create.output import CreateCategoryOutput
+from kernel_catalogo_videos.categories.application.use_cases.dto import (
+    CategoryOutputDTO,
+)
+from kernel_catalogo_videos.categories.application.use_cases.create.output import (
+    CreateCategoryOutput,
+)
 
 
 @pytest.mark.unit

@@ -28,4 +28,3 @@ def test_properties_is_none():
 
     assert fields_class[0].default is None
     assert fields_class[1].default is None
-

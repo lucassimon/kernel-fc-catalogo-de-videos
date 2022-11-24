@@ -45,9 +45,8 @@ def test_insert_entity():
 def test_raises_not_found_exception_when_fake_id():
     repo = make_repo()
 
-
     with pytest.raises(NotFoundException) as assert_error:
-        repo.find_by_id('fake id')
+        repo.find_by_id("fake id")
 
     assert assert_error.value.args[0] == "Entity not found using ID 'fake id'"
 
@@ -56,12 +55,15 @@ def test_raises_not_found_exception_when_fake_id():
 def test_raises_not_found_exception_when_not_found_entity():
     repo = make_repo()
 
-    uuid = UniqueEntityId('dcc13d20-e91d-437d-a6ac-2fd60605a271')
+    uuid = UniqueEntityId("dcc13d20-e91d-437d-a6ac-2fd60605a271")
 
     with pytest.raises(NotFoundException) as assert_error:
         repo.find_by_id(uuid)
 
-    assert assert_error.value.args[0] == "Entity not found using ID 'dcc13d20-e91d-437d-a6ac-2fd60605a271'"
+    assert (
+        assert_error.value.args[0]
+        == "Entity not found using ID 'dcc13d20-e91d-437d-a6ac-2fd60605a271'"
+    )
 
 
 @pytest.mark.unit
@@ -92,20 +94,23 @@ def test_find_all():
 def test_update_raises_not_found_exception_when_not_found_entity():
     repo = make_repo()
 
-    uuid = UniqueEntityId('dcc13d20-e91d-437d-a6ac-2fd60605a271')
+    uuid = UniqueEntityId("dcc13d20-e91d-437d-a6ac-2fd60605a271")
 
     entity = StubEntity(unique_entity_id=uuid, name="some name", price=100)
 
     with pytest.raises(NotFoundException) as assert_error:
         repo.update(entity)
 
-    assert assert_error.value.args[0] == "Entity not found using ID 'dcc13d20-e91d-437d-a6ac-2fd60605a271'"
+    assert (
+        assert_error.value.args[0]
+        == "Entity not found using ID 'dcc13d20-e91d-437d-a6ac-2fd60605a271'"
+    )
 
 
 @pytest.mark.unit
 def test_update():
     repo = make_repo()
-    uuid = UniqueEntityId('dcc13d20-e91d-437d-a6ac-2fd60605a271')
+    uuid = UniqueEntityId("dcc13d20-e91d-437d-a6ac-2fd60605a271")
 
     entity = StubEntity(unique_entity_id=uuid, name="some name", price=100)
     repo.insert(entity=entity)
@@ -116,14 +121,12 @@ def test_update():
     assert repo.items[0] == entity_update
 
 
-
 @pytest.mark.unit
 def test_delete_raises_not_found_exception_when_fake_id():
     repo = make_repo()
 
-
     with pytest.raises(NotFoundException) as assert_error:
-        repo.delete('fake id')
+        repo.delete("fake id")
 
     assert assert_error.value.args[0] == "Entity not found using ID 'fake id'"
 
@@ -132,18 +135,21 @@ def test_delete_raises_not_found_exception_when_fake_id():
 def test_delete_raises_not_found_exception_when_not_found_entity():
     repo = make_repo()
 
-    uuid = UniqueEntityId('dcc13d20-e91d-437d-a6ac-2fd60605a271')
+    uuid = UniqueEntityId("dcc13d20-e91d-437d-a6ac-2fd60605a271")
 
     with pytest.raises(NotFoundException) as assert_error:
         repo.delete(uuid)
 
-    assert assert_error.value.args[0] == "Entity not found using ID 'dcc13d20-e91d-437d-a6ac-2fd60605a271'"
+    assert (
+        assert_error.value.args[0]
+        == "Entity not found using ID 'dcc13d20-e91d-437d-a6ac-2fd60605a271'"
+    )
 
 
 @pytest.mark.unit
 def test_delete():
     repo = make_repo()
-    uuid = UniqueEntityId('dcc13d20-e91d-437d-a6ac-2fd60605a271')
+    uuid = UniqueEntityId("dcc13d20-e91d-437d-a6ac-2fd60605a271")
     entity = StubEntity(unique_entity_id=uuid, name="some name", price=100)
     repo.insert(entity=entity)
     repo.delete(entity.id)

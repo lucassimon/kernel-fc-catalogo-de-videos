@@ -11,13 +11,28 @@ def test_check_is_inactive_or_deleted():
     """
     Check it is inactive or deleted
     """
-    data = dict(title="some test", slug="some-test", is_deleted=False, status=utils.ACTIVE_STATUS)
+    data = dict(
+        title="some test",
+        slug="some-test",
+        is_deleted=False,
+        status=utils.ACTIVE_STATUS,
+    )
     category = entities.Category(**data)
 
-    data = dict(title="some test", slug="some-test", status=utils.INACTIVE_STATUS, is_deleted=True)
+    data = dict(
+        title="some test",
+        slug="some-test",
+        status=utils.INACTIVE_STATUS,
+        is_deleted=True,
+    )
     category_inactive_and_deleted = entities.Category(**data)
 
-    data = dict(title="some test", slug="some-test", status=utils.INACTIVE_STATUS, is_deleted=False)
+    data = dict(
+        title="some test",
+        slug="some-test",
+        status=utils.INACTIVE_STATUS,
+        is_deleted=False,
+    )
     category_inactive = entities.Category(**data)
 
     data = dict(title="some test", slug="some-test", is_deleted=True)
@@ -27,4 +42,3 @@ def test_check_is_inactive_or_deleted():
     assert utils.check_is_inactive_or_deleted(category_inactive_and_deleted) == True
     assert utils.check_is_inactive_or_deleted(category_inactive) == True
     assert utils.check_is_inactive_or_deleted(category_deleted) == True
-

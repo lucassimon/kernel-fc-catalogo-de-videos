@@ -13,10 +13,12 @@ from kernel_catalogo_videos.core.domain import value_objects
 class StubOneProp(value_objects.ValueObject):
     foo: str
 
+
 @dataclass(frozen=True)
 class StubTwoProp(value_objects.ValueObject):
     foo: str
     marco: str
+
 
 @pytest.mark.unit
 def test_value_object_is_a_dataclass():
@@ -27,6 +29,7 @@ def test_value_object_is_a_dataclass():
 def test_value_object_is_a_abstract_class():
     assert isinstance(value_objects.ValueObject(), ABC)
 
+
 @pytest.mark.unit
 def test_init_prop():
     obj1 = StubOneProp(foo="bar")
@@ -35,6 +38,7 @@ def test_init_prop():
     obj2 = StubTwoProp(foo="bar", marco="polo")
     assert obj2.foo == "bar"
     assert obj2.marco == "polo"
+
 
 @pytest.mark.unit
 def test_dunder_str():
@@ -49,6 +53,4 @@ def test_dunder_str():
 def test_is_immutable():
     obj = StubOneProp(foo="bar")
     with pytest.raises(FrozenInstanceError):
-        obj.foo = 'set another id'
-
-
+        obj.foo = "set another id"
