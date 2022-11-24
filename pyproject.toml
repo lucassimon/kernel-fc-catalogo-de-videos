@@ -19,9 +19,16 @@ factory-boy = "^3.2.1"
 coverage = "^6.5.0"
 pylint = "^2.15.5"
 black = "^22.10.0"
+bandit = "^1.7.4"
+safety = "^2.3.2"
 
 
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.bandit]
+exclude_dirs = ["tests", "venv", "dist", "htmlcov", "pytest_cache"]
+tests = ["B201", "B301"]
+skips = ["B101", "B601"]
