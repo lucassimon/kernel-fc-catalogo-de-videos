@@ -5,10 +5,7 @@ Define os repositories para a categoria
 from typing import List, Optional
 
 # Apps
-from kernel_catalogo_videos.core.domain.repositories import (
-    Filter,
-    InMemorySearchableRepository,
-)
+from kernel_catalogo_videos.core.domain.repositories import Filter, InMemorySearchableRepository
 from kernel_catalogo_videos.categories.domain.entities import Category
 from kernel_catalogo_videos.categories.domain.repositories import CategoryRepository
 

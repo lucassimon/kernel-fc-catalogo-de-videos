@@ -5,10 +5,7 @@ Define um ou mais validators para categoria
 # Python
 
 # Apps
-from kernel_catalogo_videos.core.domain.validators import (
-    PropsValidated,
-    ValidatorFieldInterface,
-)
+from kernel_catalogo_videos.core.domain.validators import PropsValidated, ValidatorFieldInterface
 
 
 class DummyValidator(ValidatorFieldInterface[PropsValidated]):

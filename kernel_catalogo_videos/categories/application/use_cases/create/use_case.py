@@ -7,15 +7,9 @@ Caso de uso para criar uma categoria
 from kernel_catalogo_videos.core.application.use_case import UseCase
 from kernel_catalogo_videos.categories.domain.entities import Category
 from kernel_catalogo_videos.categories.domain.repositories import CategoryRepository
-from kernel_catalogo_videos.categories.application.use_cases.dto import (
-    CategoryOutputMapper,
-)
-from kernel_catalogo_videos.categories.application.use_cases.create.input import (
-    CreateCategoryInput,
-)
-from kernel_catalogo_videos.categories.application.use_cases.create.output import (
-    CreateCategoryOutput,
-)
+from kernel_catalogo_videos.categories.application.use_cases.dto import CategoryOutputMapper
+from kernel_catalogo_videos.categories.application.use_cases.create.input import CreateCategoryInput
+from kernel_catalogo_videos.categories.application.use_cases.create.output import CreateCategoryOutput
 
 
 class CreateCategoryUseCase(UseCase[CreateCategoryInput, CreateCategoryOutput]):

@@ -11,16 +11,9 @@ from kernel_catalogo_videos.core.application.dto import PaginationOutputMapper
 from kernel_catalogo_videos.core.domain.repositories import SearchParams, SearchResult
 from kernel_catalogo_videos.core.application.use_case import UseCase
 from kernel_catalogo_videos.categories.domain.repositories import CategoryRepository
-from kernel_catalogo_videos.categories.application.use_cases.dto import (
-    CategoryOutputDTO,
-    CategoryOutputMapper,
-)
-from kernel_catalogo_videos.categories.application.use_cases.search.input import (
-    SearchCategoryInput,
-)
-from kernel_catalogo_videos.categories.application.use_cases.search.output import (
-    SearchCategoryOutput,
-)
+from kernel_catalogo_videos.categories.application.use_cases.dto import CategoryOutputDTO, CategoryOutputMapper
+from kernel_catalogo_videos.categories.application.use_cases.search.input import SearchCategoryInput
+from kernel_catalogo_videos.categories.application.use_cases.search.output import SearchCategoryOutput
 
 
 class SearchCategoriesUseCase(UseCase[SearchCategoryInput, SearchCategoryOutput]):
