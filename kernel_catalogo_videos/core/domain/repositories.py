@@ -60,9 +60,7 @@ class RepositoryInterface(Generic[ET], abc.ABC):
         raise NotImplementedError()
 
 
-class SearchableRepositoryInterface(
-    Generic[ET, Input, Output], RepositoryInterface[ET], abc.ABC
-):
+class SearchableRepositoryInterface(Generic[ET, Input, Output], RepositoryInterface[ET], abc.ABC):
     """
     Contrato para implementar uma busca
     """
@@ -120,14 +118,10 @@ class SearchParams(Generic[Filter]):
 
         sort_direction = str(self.sort_direction).lower()
 
-        self.sort_direction = (
-            "asc" if sort_direction not in ["asc", "desc"] else sort_direction
-        )
+        self.sort_direction = "asc" if sort_direction not in ["asc", "desc"] else sort_direction
 
     def _normalize_filters(self):
-        self.filters = (
-            None if self.filters == "" or self.filters is None else str(self.filters)
-        )
+        self.filters = None if self.filters == "" or self.filters is None else str(self.filters)
 
     def _convert_to_int(self, value: Any, default=1) -> int:
         try:
@@ -230,12 +224,8 @@ class InMemorySearchableRepository(
 
     def search(self, params: SearchParams[Filter]) -> SearchResult[ET, Filter]:
         items_filtered = self._apply_filter(self.items, params.filters)
-        items_sorted = self._apply_sort(
-            items_filtered, params.sort, params.sort_direction
-        )
-        items_paginated = self._apply_paginate(
-            items_sorted, params.page, params.per_page
-        )
+        items_sorted = self._apply_sort(items_filtered, params.sort, params.sort_direction)
+        items_paginated = self._apply_paginate(items_sorted, params.page, params.per_page)
 
         return SearchResult(
             items=items_paginated,
@@ -251,14 +241,10 @@ class InMemorySearchableRepository(
     def _apply_filter(self, items: List[ET], filters: Optional[Filter]):
         raise NotImplementedError()
 
-    def _apply_sort(
-        self, items: List[ET], sort: Optional[str], sort_direction: Optional[str]
-    ) -> List[ET]:
+    def _apply_sort(self, items: List[ET], sort: Optional[str], sort_direction: Optional[str]) -> List[ET]:
         if sort and sort in self.sortable_fields:
             is_reverse = sort_direction == "desc"
-            return sorted(
-                items, key=lambda item: getattr(item, sort), reverse=is_reverse
-            )
+            return sorted(items, key=lambda item: getattr(item, sort), reverse=is_reverse)
 
         return items
 

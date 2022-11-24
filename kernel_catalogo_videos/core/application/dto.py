@@ -41,9 +41,7 @@ class PaginationOutputMapper:
     def from_child(output_child: Output):
         return PaginationOutputMapper(output_child)
 
-    def to_output(
-        self, items: List[Item], result: SearchResult
-    ) -> PaginationOutput[Item, Filter]:
+    def to_output(self, items: List[Item], result: SearchResult) -> PaginationOutput[Item, Filter]:
         return self.output_child(
             items=items,
             current_page=result.current_page,

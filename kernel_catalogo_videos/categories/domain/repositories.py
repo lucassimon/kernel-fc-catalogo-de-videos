@@ -33,9 +33,7 @@ class _SearchResult(DefaultSearchResult):
     pass
 
 
-class CategoryRepository(
-    SearchableRepositoryInterface[Category, _SearchParams, _SearchResult], abc.ABC
-):
+class CategoryRepository(SearchableRepositoryInterface[Category, _SearchParams, _SearchResult], abc.ABC):
     """
     Classe para tratar uma categoria
     """

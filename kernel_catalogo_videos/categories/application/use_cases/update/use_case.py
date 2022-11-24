@@ -35,6 +35,4 @@ class UpdateCategoryUseCase(UseCase[UpdateCategoryInput, UpdateCategoryOutput]):
         return self.__to_output(category=entity)
 
     def __to_output(self, category: Category):
-        return CategoryOutputMapper.to_output(
-            klass=UpdateCategoryOutput, category=category
-        )
+        return CategoryOutputMapper.to_output(klass=UpdateCategoryOutput, category=category)

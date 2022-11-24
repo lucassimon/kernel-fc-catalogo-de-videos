@@ -34,12 +34,8 @@ class SearchCategoriesUseCase(UseCase[SearchCategoryInput, SearchCategoryOutput]
     def __to_output(self, result: SearchResult):
         items = list(
             map(
-                lambda category: CategoryOutputMapper.to_output(
-                    klass=CategoryOutputDTO, category=category
-                ),
+                lambda category: CategoryOutputMapper.to_output(klass=CategoryOutputDTO, category=category),
                 result.items,
             )
         )
-        return PaginationOutputMapper.from_child(SearchCategoryOutput).to_output(
-            items=items, result=result
-        )
+        return PaginationOutputMapper.from_child(SearchCategoryOutput).to_output(items=items, result=result)
