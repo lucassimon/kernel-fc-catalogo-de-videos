@@ -45,7 +45,7 @@ jobs:
       - name: Run black
         run: poetry run black kernel_catalogo_videos --check
       - name: Run isort
-        run: poetry run isort kernel_catalogo_videos --check-only
+        run: poetry run isort --profile black --settings-file .isort.cfg kernel_catalogo_videos/ --check-only
       - name: Run bandit
         run: poetry run bandit -r kernel_catalogo_videos
       - name: Run saftey
