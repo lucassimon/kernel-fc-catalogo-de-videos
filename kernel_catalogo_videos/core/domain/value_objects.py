@@ -36,5 +36,7 @@ class ValueObject(ABC):
         return (
             str(getattr(self, fields_names[0]))
             if len(fields_names) == 1
-            else json.dumps({field_name: getattr(self, field_name) for field_name in fields_names})
+            else json.dumps(
+                {field_name: getattr(self, field_name) for field_name in fields_names}
+            )
         )

@@ -6,7 +6,9 @@ Caso de uso para criar uma categoria
 # Apps
 from kernel_catalogo_videos.core.application.use_case import UseCase
 from kernel_catalogo_videos.categories.domain.repositories import CategoryRepository
-from kernel_catalogo_videos.categories.application.use_cases.delete.input import DeleteCategoryInput
+from kernel_catalogo_videos.categories.application.use_cases.delete.input import (
+    DeleteCategoryInput,
+)
 
 
 class DeleteCategoryUseCase(UseCase[DeleteCategoryInput, None]):

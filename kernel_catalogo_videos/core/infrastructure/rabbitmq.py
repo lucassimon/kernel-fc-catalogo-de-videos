@@ -135,7 +135,9 @@ class InterfaceRabbitMQ(InterfacePublishToQueue):
         """
 
         properties = pika.BasicProperties(
-            app_id="admin-catalog-video", content_type="application/json", delivery_mode=pika.DeliveryMode.Persistent
+            app_id="admin-catalog-video",
+            content_type="application/json",
+            delivery_mode=pika.DeliveryMode.Persistent,
         )
 
         body = self.message_to_json(message)

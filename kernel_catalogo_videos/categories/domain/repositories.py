@@ -5,9 +5,15 @@ Define os repositories para a categoria
 import abc
 
 # Apps
-from kernel_catalogo_videos.core.domain.repositories import SearchParams as DefaultSearchParams
-from kernel_catalogo_videos.core.domain.repositories import SearchResult as DefaultSearchResult
-from kernel_catalogo_videos.core.domain.repositories import SearchableRepositoryInterface
+from kernel_catalogo_videos.core.domain.repositories import (
+    SearchParams as DefaultSearchParams,
+)
+from kernel_catalogo_videos.core.domain.repositories import (
+    SearchResult as DefaultSearchResult,
+)
+from kernel_catalogo_videos.core.domain.repositories import (
+    SearchableRepositoryInterface,
+)
 
 # Local
 from .entities import Category
@@ -33,7 +39,9 @@ class _SearchResult(DefaultSearchResult):
     pass
 
 
-class CategoryRepository(SearchableRepositoryInterface[Category, _SearchParams, _SearchResult], abc.ABC):
+class CategoryRepository(
+    SearchableRepositoryInterface[Category, _SearchParams, _SearchResult], abc.ABC
+):
     """
     Classe para tratar uma categoria
     """

@@ -13,7 +13,7 @@ from kernel_catalogo_videos.categories.domain.entities import Category
 
 @dataclass(slots=True, frozen=True)
 class CategoryOutputDTO:
-    id: str # pylint: disable=invalid-name
+    id: str  # pylint: disable=invalid-name
     title: str
     is_deleted: bool
     created_at: datetime
