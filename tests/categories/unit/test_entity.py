@@ -115,7 +115,7 @@ def test_category_update():
 
     new_data = dict(
         title="another title",
-        slug="another-slug",
+        slug="another-title",
         description="another-description",
     )
     category.update(data=new_data)
