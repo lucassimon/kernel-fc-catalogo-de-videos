@@ -1,5 +1,6 @@
 GIT_CURRENT_BRANCH := ${shell git symbolic-ref --short HEAD}
 FLAKE8_FLAGS = --ignore=W503,E501
+current_dir = $(shell pwd)
 
 .PHONY: help clean test clean-build lint lint_black lint_isort black isort formatter run_dev migrations migrate makemessages coverage show_urls
 
@@ -46,14 +47,15 @@ lint:
 	@pylint kernel_catalogo_videos/
 
 lint_black:
-	@docker run --rm --volume $(pwd):/src --workdir /src pyfound/black:latest_release black --check .
+	@docker run --rm --volume $(current_dir):/src --workdir /src pyfound/black:latest_release black --check kernel_catalogo_videos
 
 lint_isort:
-	@isort --check-only apps/ src/
+	@isort --profile black --check-only kernel_catalogo_videos/
 
 ## @ formatacao
 black:
-	@docker run --rm --volume $(pwd):/src --workdir /src pyfound/black:latest_release black .
+	@echo $(current_dir)
+	@docker run --rm --volume $(current_dir):/src --workdir /src pyfound/black:latest_release black kernel_catalogo_videos
 
 isort:
 	@isort kernel_catalogo_videos/
