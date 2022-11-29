@@ -1,4 +1,7 @@
+# Python
 import logging
+
+# Third
 import structlog
 
 
@@ -16,18 +19,13 @@ def configure_logging(debug=False):
                 structlog.processors.CallsiteParameter.LINENO,
                 structlog.processors.CallsiteParameter.PATHNAME,
             }
-        )
+        ),
     ]
-    production = default + [
-        structlog.processors.dict_tracebacks,
-        structlog.processors.JSONRenderer()
-    ]
+    production = default + [structlog.processors.dict_tracebacks, structlog.processors.JSONRenderer()]
 
     development = default + [
         structlog.dev.set_exc_info,
-        structlog.dev.ConsoleRenderer(
-            exception_formatter=structlog.dev.rich_traceback
-        )
+        structlog.dev.ConsoleRenderer(exception_formatter=structlog.dev.rich_traceback),
     ]
 
     processors = development if debug else production
