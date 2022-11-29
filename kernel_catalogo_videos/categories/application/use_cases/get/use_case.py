@@ -1,6 +1,9 @@
 """
 Buscar uma  categoria
 """
+# Python
+from dataclasses import asdict
+from logging import Logger
 
 
 # Apps
@@ -19,11 +22,19 @@ class GetCategoryUseCase(UseCase[GetCategoryInput, GetCategoryOutput]):
 
     repo: CategoryRepository
 
-    def __init__(self, repo: CategoryRepository) -> None:
+    def __init__(self, repo: CategoryRepository, logger: Logger | None = None) -> None:
         self.repo = repo
+        self.logger = logger
 
     def execute(self, input_params: GetCategoryInput) -> GetCategoryOutput:
+        if self.logger:
+            self.logger.info("get.category.usecase", message="Initial Payload", input_params=asdict(input_params))
+
         category = self.repo.find_by_id(input_params.id)
+
+        if self.logger:
+            self.logger.info("get.category.usecase", message="Entity founded")
+
         return self.__to_output(category=category)
 
     def __to_output(self, category: Category):

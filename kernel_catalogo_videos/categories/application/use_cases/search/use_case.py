@@ -5,6 +5,7 @@ Listar categorias
 
 # Python
 from dataclasses import asdict
+from logging import Logger
 
 # Apps
 from kernel_catalogo_videos.core.application.dto import PaginationOutputMapper
@@ -23,12 +24,21 @@ class SearchCategoriesUseCase(UseCase[SearchCategoryInput, SearchCategoryOutput]
 
     repo: CategoryRepository
 
-    def __init__(self, repo: CategoryRepository) -> None:
+    def __init__(self, repo: CategoryRepository, logger: Logger | None = None) -> None:
         self.repo = repo
+        self.logger = logger
 
     def execute(self, input_params: SearchCategoryInput) -> SearchCategoryOutput:
+        if self.logger:
+            self.logger.info("search.category.usecase", message="Initial Payload", input_params=asdict(input_params))
+
         search_params = SearchParams(**asdict(input_params))
+
         result = self.repo.search(params=search_params)
+
+        if self.logger:
+            self.logger.info("search.category.usecase", message="Entities listed")
+
         return self.__to_output(result=result)
 
     def __to_output(self, result: SearchResult):

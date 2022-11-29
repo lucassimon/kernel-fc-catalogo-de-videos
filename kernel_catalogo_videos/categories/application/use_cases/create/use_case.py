@@ -2,6 +2,7 @@
 Caso de uso para criar uma categoria
 """
 # Python
+from dataclasses import asdict
 from logging import Logger
 
 # Apps
@@ -26,7 +27,7 @@ class CreateCategoryUseCase(UseCase[CreateCategoryInput, CreateCategoryOutput]):
 
     def execute(self, input_params: CreateCategoryInput) -> CreateCategoryOutput:
         if self.logger:
-            self.logger.info("create.category.usecase", message="Initial Payload", input_params=input_params)
+            self.logger.info("create.category.usecase", message="Initial Payload", input_params=asdict(input_params))
 
         category = Category(
             title=input_params.title,

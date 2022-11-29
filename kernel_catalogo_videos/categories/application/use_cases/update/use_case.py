@@ -1,8 +1,9 @@
 """
 Caso de uso para atualizar uma categoria
 """
-
-
+# Python
+from dataclasses import asdict
+from logging import Logger
 # Apps
 from kernel_catalogo_videos.core.application.use_case import UseCase
 from kernel_catalogo_videos.categories.domain.entities import Category
@@ -19,18 +20,33 @@ class UpdateCategoryUseCase(UseCase[UpdateCategoryInput, UpdateCategoryOutput]):
 
     repo: CategoryRepository
 
-    def __init__(self, repo: CategoryRepository) -> None:
+    def __init__(self, repo: CategoryRepository,  logger: Logger | None = None) -> None:
         self.repo = repo
+        self.logger = logger
 
     def execute(self, input_params: UpdateCategoryInput) -> UpdateCategoryOutput:
+        if self.logger:
+            self.logger.info("update.category.usecase", message="Initial Payload", input_params=asdict(input_params))
+
         entity = self.repo.find_by_id(input_params.id)
-        entity.update(input_params.name, input_params.description)
+
+        if self.logger:
+            self.logger.info("update.category.usecase", message="Founded entity", entity=entity.to_dict())
+
+        entity.update(data={"title": input_params.title, "description": input_params.description})
 
         if input_params.is_active is True:
             entity.activate()
 
         if input_params.is_active is False:
             entity.deactivate()
+
+        if self.logger:
+            self.logger.info("update.category.usecase", message="Entity updated", entity=entity.to_dict())
+
+        self.repo.update(entity=entity)
+        if self.logger:
+            self.logger.info("create.category.usecase", message="Entity saved")
 
         return self.__to_output(category=entity)
 
