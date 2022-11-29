@@ -43,14 +43,22 @@ clean-build: clean
 	rm -rf dist/
 	rm -rf *.egg-info
 
-lint:
-	@pylint kernel_catalogo_videos/
-
 lint_black:
 	@docker run --rm --volume $(current_dir):/src --workdir /src pyfound/black:latest_release black --check kernel_catalogo_videos
 
 lint_isort:
 	@isort --profile black --check-only kernel_catalogo_videos/
+
+lint_bandit:
+	@bandit -r kernel_catalogo_videos/
+
+lint_safety:
+	@safety check
+
+lint_pylint:
+	@pylint kernel_catalogo_videos/
+
+lint: lint_black lint_isort lint_pylint lint_bandit lint_safety
 
 ## @ formatacao
 black:

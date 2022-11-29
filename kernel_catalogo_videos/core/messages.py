@@ -9,8 +9,8 @@ class Messages(Enum):
     EXCEPTION = "Ocorreu um erro no servidor. Contate o administrador."
     ALREADY_EXISTS = "Já existe um(a) {} com estes dados."
     NO_DATA = "Nenhum dado foi postado."
-    PASSWORD_DIDNT_MATCH = "As senhas não conferem."
-    PASSWORD_CHANGED_OK = "A senha foi alterada com sucesso."
+    PASSWORD_DIDNT_MATCH = "As senhas não conferem."  # nosec
+    PASSWORD_CHANGED_OK = "A senha foi alterada com sucesso."  # nosec
     USER_INACTIVE = "Este usuário está inativo."
     USER_HAS_NO_PERMISSIONS = "Este usuário não possui permissões necessárias."
 
@@ -20,9 +20,9 @@ class Messages(Enum):
     RESOURCE_UPDATED = "{} atualizado(a)."
     RESOURCE_DELETED = "{} deletado(a)."
 
-    TOKEN_CREATED = "Token criado."
-    INVALID_CREDENTIALS = "As credenciais estão inválidas para log in."
-    TOKEN_EXPIRED = "Token expirou."
+    TOKEN_CREATED = "Token criado."  # nosec
+    INVALID_CREDENTIALS = "As credenciais estão inválidas para log in."  # nosec
+    TOKEN_EXPIRED = "Token expirou."  # nosec
     PERMISSION_DENIED = "Permissão negada."
 
     RESOURCE_NOT_ALLOWED = "O método solicitado não é permitido para este endpoint."
