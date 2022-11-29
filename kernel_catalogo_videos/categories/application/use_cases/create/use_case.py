@@ -2,8 +2,8 @@
 Caso de uso para criar uma categoria
 """
 # Python
-from dataclasses import asdict
 from logging import Logger
+from dataclasses import asdict
 
 # Apps
 from kernel_catalogo_videos.core.application.use_case import UseCase

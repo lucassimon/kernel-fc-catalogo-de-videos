@@ -4,8 +4,8 @@ Listar categorias
 
 
 # Python
-from dataclasses import asdict
 from logging import Logger
+from dataclasses import asdict
 
 # Apps
 from kernel_catalogo_videos.core.application.dto import PaginationOutputMapper

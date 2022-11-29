@@ -1,8 +1,10 @@
 """
 Caso de uso para criar uma categoria
 """
-from dataclasses import asdict
+# Python
 from logging import Logger
+from dataclasses import asdict
+
 # Apps
 from kernel_catalogo_videos.core.application.use_case import UseCase
 from kernel_catalogo_videos.categories.domain.repositories import CategoryRepository

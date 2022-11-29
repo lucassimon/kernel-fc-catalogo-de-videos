@@ -1,9 +1,12 @@
 """
 Caso de uso para atualizar uma categoria
 """
+# pylint: disable=duplicate-code
+
 # Python
-from dataclasses import asdict
 from logging import Logger
+from dataclasses import asdict
+
 # Apps
 from kernel_catalogo_videos.core.application.use_case import UseCase
 from kernel_catalogo_videos.categories.domain.entities import Category
@@ -20,7 +23,7 @@ class UpdateCategoryUseCase(UseCase[UpdateCategoryInput, UpdateCategoryOutput]):
 
     repo: CategoryRepository
 
-    def __init__(self, repo: CategoryRepository,  logger: Logger | None = None) -> None:
+    def __init__(self, repo: CategoryRepository, logger: Logger | None = None) -> None:
         self.repo = repo
         self.logger = logger
 
