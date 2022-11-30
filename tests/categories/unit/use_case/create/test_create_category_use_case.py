@@ -47,6 +47,7 @@ def test_execute():
         expected = CreateCategoryOutput(
             id=repo.items[0].id,
             title="some title",
+            slug="some-title",
             description="some description",
             status=1,
             is_deleted=False,

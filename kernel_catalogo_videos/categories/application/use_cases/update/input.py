@@ -13,5 +13,7 @@ from kernel_catalogo_videos.categories.domain.entities import Category
 class UpdateCategoryInput:
     id: str  # pylint: disable=invalid-name
     title: str
+    slug: Optional[str] = Category.get_field("slug").default
     description: Optional[str] = Category.get_field("description").default
     status: Optional[int] = Category.get_field("status").default
+    is_deleted: Optional[bool] = Category.get_field("is_deleted").default

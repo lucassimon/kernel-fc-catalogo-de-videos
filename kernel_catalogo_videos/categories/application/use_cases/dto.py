@@ -15,6 +15,7 @@ from kernel_catalogo_videos.categories.domain.entities import Category
 class CategoryOutputDTO:
     id: str  # pylint: disable=invalid-name
     title: str
+    slug: str
     is_deleted: bool
     created_at: datetime
     description: Optional[str] = None
@@ -30,6 +31,7 @@ class CategoryOutputMapper:
         return klass(
             id=category.id,
             title=category.title,
+            slug=category.slug,
             description=category.description,
             status=category.status,
             is_deleted=category.is_deleted,

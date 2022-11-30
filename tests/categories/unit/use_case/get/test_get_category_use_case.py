@@ -55,6 +55,7 @@ def test_execute():
         expected = GetCategoryOutput(
             id=category.id,
             title=category.title,
+            slug=category.slug,
             description=category.description,
             status=category.status,
             is_deleted=category.is_deleted,

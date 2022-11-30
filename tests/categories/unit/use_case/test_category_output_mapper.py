@@ -16,6 +16,7 @@ def test_category_output_mapper():
     # pylint: disable=unexpected-keyword-arg
     category = Category(
         title="test",
+        slug="test",
         description="some description",
         status=1,
         is_deleted=False,
@@ -27,6 +28,7 @@ def test_category_output_mapper():
     assert output == CategoryOutputDTO(
         id=category.id,
         title=category.title,
+        slug=category.slug,
         description=category.description,
         status=category.status,
         is_deleted=category.is_deleted,

@@ -16,6 +16,7 @@ def test_output():
     expected = {
         "id": str,
         "title": str,
+        "slug": str,
         "is_deleted": bool,
         "created_at": datetime,
         "description": Optional[str],
