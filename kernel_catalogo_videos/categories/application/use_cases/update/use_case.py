@@ -8,13 +8,13 @@ from logging import Logger
 from dataclasses import asdict
 
 # Apps
+from kernel_catalogo_videos.core.utils import ACTIVE_STATUS, INACTIVE_STATUS
 from kernel_catalogo_videos.core.application.use_case import UseCase
 from kernel_catalogo_videos.categories.domain.entities import Category
 from kernel_catalogo_videos.categories.domain.repositories import CategoryRepository
 from kernel_catalogo_videos.categories.application.use_cases.dto import CategoryOutputMapper
 from kernel_catalogo_videos.categories.application.use_cases.update.input import UpdateCategoryInput
 from kernel_catalogo_videos.categories.application.use_cases.update.output import UpdateCategoryOutput
-
 
 class UpdateCategoryUseCase(UseCase[UpdateCategoryInput, UpdateCategoryOutput]):
     """
@@ -38,10 +38,10 @@ class UpdateCategoryUseCase(UseCase[UpdateCategoryInput, UpdateCategoryOutput]):
 
         entity.update(data={"title": input_params.title, "description": input_params.description})
 
-        if input_params.is_active is True:
+        if input_params.status == ACTIVE_STATUS:
             entity.activate()
 
-        if input_params.is_active is False:
+        if input_params.status == INACTIVE_STATUS:
             entity.deactivate()
 
         if self.logger:
