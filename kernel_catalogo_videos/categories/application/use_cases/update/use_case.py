@@ -16,6 +16,7 @@ from kernel_catalogo_videos.categories.application.use_cases.dto import Category
 from kernel_catalogo_videos.categories.application.use_cases.update.input import UpdateCategoryInput
 from kernel_catalogo_videos.categories.application.use_cases.update.output import UpdateCategoryOutput
 
+
 class UpdateCategoryUseCase(UseCase[UpdateCategoryInput, UpdateCategoryOutput]):
     """
     Atualizar uma categoria
