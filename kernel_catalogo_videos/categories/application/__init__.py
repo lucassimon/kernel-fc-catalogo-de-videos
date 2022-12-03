@@ -1,5 +1,5 @@
 # Apps
-from kernel_catalogo_videos.categories.application.use_cases.dto import CategoryOutputDTO
+from kernel_catalogo_videos.categories.application.use_cases.dto import CategoryOutputDTO, CategoryOutputMapper
 from kernel_catalogo_videos.categories.application.use_cases.get.input import GetCategoryInput
 from kernel_catalogo_videos.categories.application.use_cases.get.output import GetCategoryOutput
 from kernel_catalogo_videos.categories.application.use_cases.create.input import CreateCategoryInput

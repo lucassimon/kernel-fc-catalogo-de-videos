@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from kernel_catalogo_videos.categories.domain.entities import Category
 
 
-@dataclass(slots=True, frozen=True)
+@dataclass(slots=True, frozen=False)
 class UpdateCategoryInput:
     id: str  # pylint: disable=invalid-name
     title: str
