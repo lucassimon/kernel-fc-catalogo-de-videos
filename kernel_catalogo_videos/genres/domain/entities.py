@@ -1,10 +1,16 @@
 """
 Define uma entidade
 """
+# pylint: disable=duplicate-code
+
+
 # Python
-from typing import Optional
+from typing import Any, Dict, Optional
 from datetime import datetime
 from dataclasses import field, dataclass
+
+# Third
+from slugify import slugify
 
 # Apps
 from kernel_catalogo_videos.core.utils import ACTIVE_STATUS, now
@@ -18,7 +24,23 @@ class Genre(Entity):
     """
 
     title: str
-    slug: str
+    slug: Optional[str] = ""
     status: Optional[int] = ACTIVE_STATUS
     is_deleted: bool = False
     created_at: Optional[datetime] = field(default_factory=now)
+
+    def __post_init__(self):
+        self.normalize()
+
+    def update(self, data: Dict[str, Any]):
+        """
+        Atualiza os dados internos da entidade
+        """
+        for field_name, value in data.items():
+            self._set(field_name, value)
+
+        self.normalize()
+
+    def normalize(self):
+        slugged = slugify(self.title)
+        self._set("slug", slugged)

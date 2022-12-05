@@ -53,14 +53,13 @@ def test_entity_to_dict():
     entity = Genre(
         unique_entity_id=UniqueEntityId(uuid),
         title="bar",
-        slug="polo",
         created_at=datetime(2019, 7, 1),
     )
 
     assert entity.to_dict() == {
         "id": str(uuid),
         "title": "bar",
-        "slug": "polo",
+        "slug": "bar",
         "status": 1,
         "is_deleted": False,
         "created_at": datetime(2019, 7, 1),
