@@ -7,8 +7,8 @@ from logging import Logger
 from dataclasses import asdict
 
 # Apps
-from kernel_catalogo_videos.core.application.use_case import UseCase
 from kernel_catalogo_videos.genres.domain.entities import Genre
+from kernel_catalogo_videos.core.application.use_case import UseCase
 from kernel_catalogo_videos.genres.domain.repositories import GenreRepository
 from kernel_catalogo_videos.genres.application.use_cases.dto import GenreOutputMapper
 from kernel_catalogo_videos.genres.application.use_cases.get.input import GetGenreInput

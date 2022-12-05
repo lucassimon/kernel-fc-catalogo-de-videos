@@ -8,6 +8,9 @@ utc = timezone.utc
 INACTIVE_STATUS = 0
 ACTIVE_STATUS = 1
 
+KIND_DIRECTOR = 0
+KIND_ACTOR = 1
+
 
 def now() -> datetime:
     return datetime.now(tz=utc)

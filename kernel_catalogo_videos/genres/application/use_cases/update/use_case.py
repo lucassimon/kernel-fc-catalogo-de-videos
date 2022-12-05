@@ -9,8 +9,8 @@ from dataclasses import asdict
 
 # Apps
 from kernel_catalogo_videos.core.utils import ACTIVE_STATUS, INACTIVE_STATUS
-from kernel_catalogo_videos.core.application.use_case import UseCase
 from kernel_catalogo_videos.genres.domain.entities import Genre
+from kernel_catalogo_videos.core.application.use_case import UseCase
 from kernel_catalogo_videos.genres.domain.repositories import GenreRepository
 from kernel_catalogo_videos.genres.application.use_cases.dto import GenreOutputMapper
 from kernel_catalogo_videos.genres.application.use_cases.update.input import UpdateGenreInput
