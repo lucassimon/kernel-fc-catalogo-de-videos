@@ -1,6 +1,7 @@
 """
 Modulo seedwork para uma Entidade
 """
+# pylint: disable=duplicate-code
 
 # Python
 from abc import ABC
@@ -40,3 +41,8 @@ class Entity(ABC):
     def get_field(cls, entity_field: str) -> Field:
         # pylint: disable=no-member
         return cls.__dataclass_fields__[entity_field]
+
+    def _set(self, field_name, value):
+        object.__setattr__(self, field_name, value)
+
+        return self
