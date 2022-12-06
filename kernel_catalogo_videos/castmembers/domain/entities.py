@@ -10,7 +10,7 @@ from datetime import datetime
 from dataclasses import field, dataclass
 
 # Apps
-from kernel_catalogo_videos.core.utils import KIND_ACTOR, ACTIVE_STATUS, now
+from kernel_catalogo_videos.core.utils import KIND_ACTOR, ACTIVE_STATUS, INACTIVE_STATUS, now
 from kernel_catalogo_videos.core.domain.entities import Entity
 
 
@@ -37,3 +37,15 @@ class CastMember(Entity):
             self._set(field_name, value)
 
         pass
+
+    def activate(self):
+        """
+        Seta o atributo status como ativo
+        """
+        self._set("status", ACTIVE_STATUS)
+
+    def deactivate(self):
+        """
+        Seta o atributo status como inativo
+        """
+        self._set("status", INACTIVE_STATUS)

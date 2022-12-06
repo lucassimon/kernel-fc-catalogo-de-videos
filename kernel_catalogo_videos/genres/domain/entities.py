@@ -13,7 +13,7 @@ from dataclasses import field, dataclass
 from slugify import slugify
 
 # Apps
-from kernel_catalogo_videos.core.utils import ACTIVE_STATUS, now
+from kernel_catalogo_videos.core.utils import ACTIVE_STATUS, INACTIVE_STATUS, now
 from kernel_catalogo_videos.core.domain.entities import Entity
 
 
@@ -44,3 +44,15 @@ class Genre(Entity):
     def normalize(self):
         slugged = slugify(self.title)
         self._set("slug", slugged)
+
+    def activate(self):
+        """
+        Seta o atributo status como ativo
+        """
+        self._set("status", ACTIVE_STATUS)
+
+    def deactivate(self):
+        """
+        Seta o atributo status como inativo
+        """
+        self._set("status", INACTIVE_STATUS)
