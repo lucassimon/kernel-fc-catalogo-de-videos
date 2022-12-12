@@ -1,3 +1,4 @@
+# Apps
 from kernel_catalogo_videos.core.infrastructure.rabbitmq import InterfaceRabbitMQ
 
 
@@ -15,7 +16,7 @@ class PublishCreatedVideoToQueue(InterfaceRabbitMQ):
         catalog_videos_dead,
         catalog_videos_dead_rk,
         catalog_videos,
-        catalog_videos_rk
+        catalog_videos_rk,
     ):
         self.conn = rabbitmq_conn
         self.channel = rabbitmq_channel

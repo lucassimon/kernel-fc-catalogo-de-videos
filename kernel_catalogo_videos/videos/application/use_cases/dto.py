@@ -4,12 +4,12 @@ Output retornando os dados de uma categoria
 # pylint: disable=duplicate-code
 
 # Python
-from typing import TypeVar, List, Optional
+from typing import List, TypeVar, Optional
 from datetime import datetime
 from dataclasses import dataclass
 
 # Apps
-from kernel_catalogo_videos.videos.domain.entities import Video, RATING_EIGHTEEN_YEARS
+from kernel_catalogo_videos.videos.domain.entities import RATING_EIGHTEEN_YEARS, Video
 
 
 @dataclass(slots=True, frozen=True)
