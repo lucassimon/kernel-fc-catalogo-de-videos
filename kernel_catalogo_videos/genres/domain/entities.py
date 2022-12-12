@@ -5,7 +5,7 @@ Define uma entidade
 
 
 # Python
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 from datetime import datetime
 from dataclasses import field, dataclass
 
@@ -24,6 +24,7 @@ class Genre(Entity):
     """
 
     title: str
+    categories: List[str]
     slug: Optional[str] = ""
     status: Optional[int] = ACTIVE_STATUS
     is_deleted: bool = False

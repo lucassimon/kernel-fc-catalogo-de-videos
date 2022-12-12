@@ -26,6 +26,7 @@ def test_is_subclass():
 def test_execute():
     data = dict(
         title="some test",
+        categories=["some uuid"],
         slug="some-test",
         status=1,
     )

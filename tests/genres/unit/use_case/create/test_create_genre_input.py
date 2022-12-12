@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import List, Optional
 import pytest
 
 from kernel_catalogo_videos.genres.application.use_cases.create.input import (
@@ -9,7 +9,7 @@ from kernel_catalogo_videos.genres.domain.entities import Genre
 
 @pytest.mark.unit
 def test_input():
-    expected = {"title": str,  "status": Optional[int]}
+    expected = {"title": str,  "status": Optional[int], "categories": List[str]}
 
     assert CreateGenreInput.__annotations__ == expected
 

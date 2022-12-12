@@ -34,6 +34,7 @@ def test_input():
 def test_execute():
     data = dict(
         title="some test",
+        categories=["some uuid"],
         slug="some-test",
         status=1,
     )
@@ -55,6 +56,7 @@ def test_execute():
             id=genre.id,
             title=genre.title,
             slug=genre.slug,
+            categories=genre.categories,
             status=genre.status,
             is_deleted=genre.is_deleted,
             created_at=genre.created_at,

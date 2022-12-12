@@ -4,7 +4,7 @@ Output retornando os dados de uma categoria
 # pylint: disable=duplicate-code
 
 # Python
-from typing import TypeVar, Optional
+from typing import List, TypeVar, Optional
 from datetime import datetime
 from dataclasses import dataclass
 
@@ -15,6 +15,7 @@ from kernel_catalogo_videos.genres.domain.entities import Genre
 @dataclass(slots=True, frozen=True)
 class GenreOutputDTO:
     id: str  # pylint: disable=invalid-name
+    categories: List[str]
     title: str
     slug: str
     is_deleted: bool
@@ -30,6 +31,7 @@ class GenreOutputMapper:
     def to_output(klass: Output, genre: Genre) -> Output:
         return klass(
             id=genre.id,
+            categories=genre.categories,
             title=genre.title,
             slug=genre.slug,
             status=genre.status,

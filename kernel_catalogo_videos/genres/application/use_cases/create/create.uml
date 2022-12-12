@@ -1,5 +1,0 @@
-@startuml
-
-:Admin: -> (Criar categoria)
-
-@enduml

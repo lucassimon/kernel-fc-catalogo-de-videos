@@ -37,8 +37,8 @@ def test_execute_with_empty_search_params():
 
     repo = GenreInMemoryRepository()
     repo.items = [
-        Genre(title="test 1", created_at=now()),
-        Genre(title="test 2", created_at=now() + timedelta(minutes=200)),
+        Genre(title="test 1", categories=["some-uuid"], created_at=now()),
+        Genre(title="test 2", categories=["some-uuid"], created_at=now() + timedelta(minutes=200)),
     ]
     with patch.object(repo, "search", wraps=repo.search) as mocked_search:
         input_params = SearchGenreInput()
@@ -76,11 +76,11 @@ def test_execute_with_pagination_and_sort_filter():
     # pylint: disable=unexpected-keyword-arg
 
     items = [
-        Genre(title="a"),
-        Genre(title="AAA"),
-        Genre(title="AaA"),
-        Genre(title="b"),
-        Genre(title="c"),
+        Genre(title="a", categories=["some-uuid"],),
+        Genre(title="AAA", categories=["some-uuid"],),
+        Genre(title="AaA", categories=["some-uuid"],),
+        Genre(title="b", categories=["some-uuid"],),
+        Genre(title="c", categories=["some-uuid"],),
     ]
 
     repo = GenreInMemoryRepository()
@@ -237,7 +237,7 @@ def test_to_output_when_empty_response():
 
 @pytest.mark.unit
 def test_to_output_with_genre():
-    entity = Genre(title="movie")
+    entity = Genre(title="movie", categories=["some-uuid"],)
     default_props = {
         "total": 1,
         "current_page": 1,

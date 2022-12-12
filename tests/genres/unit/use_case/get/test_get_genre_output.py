@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Optional
+from typing import List, Optional
 
 import pytest
 
@@ -16,6 +16,7 @@ def test_output():
     expected = {
         "id": str,
         "title": str,
+        "categories": List[str],
         "slug": str,
         "is_deleted": bool,
         "created_at": datetime,
