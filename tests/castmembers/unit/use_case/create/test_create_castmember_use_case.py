@@ -10,7 +10,7 @@ from kernel_catalogo_videos.castmembers.application.use_cases.create.output impo
 )
 
 from kernel_catalogo_videos.castmembers.application.use_cases.create.use_case import (
-    CreateGenreUseCase,
+    CreateCastMemberUseCase,
 )
 from kernel_catalogo_videos.core.application.use_case import UseCase
 from kernel_catalogo_videos.castmembers.infrastructure.repositories import (
@@ -20,7 +20,7 @@ from kernel_catalogo_videos.castmembers.infrastructure.repositories import (
 
 @pytest.mark.unit
 def test_is_subclass():
-    assert issubclass(CreateGenreUseCase, UseCase)
+    assert issubclass(CreateCastMemberUseCase, UseCase)
 
 
 
@@ -31,7 +31,7 @@ def test_execute():
         input_params = CreateCastMemberInput(
             name="some title", kind=1, status=1
         )
-        use_case = CreateGenreUseCase(repo)
+        use_case = CreateCastMemberUseCase(repo)
         result = use_case.execute(input_params=input_params)
 
         mock_insert.assert_called_once()

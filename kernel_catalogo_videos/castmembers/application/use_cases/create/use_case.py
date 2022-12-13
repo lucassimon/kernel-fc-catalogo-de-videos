@@ -15,7 +15,7 @@ from kernel_catalogo_videos.castmembers.application.use_cases.create.input impor
 from kernel_catalogo_videos.castmembers.application.use_cases.create.output import CreateCastMemberOutput
 
 
-class CreateGenreUseCase(UseCase[CreateCastMemberInput, CreateCastMemberOutput]):
+class CreateCastMemberUseCase(UseCase[CreateCastMemberInput, CreateCastMemberOutput]):
     """
     Classe para criar um membro
     """
