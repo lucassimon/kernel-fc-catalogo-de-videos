@@ -1,5 +1,10 @@
-@startuml
+@startuml asa
 
-:Admin: -> (Criar categoria)
+:Person: -> (Upload de media)
+:Person: -> (Upload de media via presignedUrl)
+:Person: -> (Buscar media)
+:Person: -> (Buscar media e retornar sua url publica)
+:Person: -> (Download da media)
+:Person: -> (Excluir media)
 
 @enduml
